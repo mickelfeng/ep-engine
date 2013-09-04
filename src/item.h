@@ -116,7 +116,7 @@ public:
     void operator delete(void* p) { ::operator delete(p); }
 
     ~Blob() {
-        ObjectRegistry::onDeleteBlob(this);
+        //ObjectRegistry::onDeleteBlob(this);
     }
 
 private:
@@ -125,7 +125,7 @@ private:
         size(static_cast<uint32_t>(len))
     {
         std::memcpy(data, start, len);
-        ObjectRegistry::onCreateBlob(this);
+        //ObjectRegistry::onCreateBlob(this);
     }
 
     explicit Blob(const size_t len) :
@@ -134,7 +134,7 @@ private:
 #ifdef VALGRIND
         memset(data, 0, len);
 #endif
-        ObjectRegistry::onCreateBlob(this);
+        //ObjectRegistry::onCreateBlob(this);
     }
 
     const uint32_t size;
