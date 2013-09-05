@@ -89,7 +89,9 @@ public:
                      std::list<Checkpoint*>::iterator checkpoint,
                      std::list<queued_item>::iterator pos,
                      size_t os = 0, bool isClosedCheckpointOnly = false ) :
-        name(n), currentCheckpoint(checkpoint), currentPos(pos), offset(os) { }
+        name(n), currentCheckpoint(checkpoint), currentPos(pos), offset(os) {
+        (void)isClosedCheckpointOnly;
+    }
 
 private:
     std::string                      name;
